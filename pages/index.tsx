@@ -3,7 +3,7 @@ import Head from 'next/head'
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <>
       <Head>
         <title>huihuiblog</title>
         <meta
@@ -13,10 +13,7 @@ const Home: NextPage = () => {
         <meta name="description" content="pphui8的blog" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-
-      
-    </div>
+    </>
   );
 }
 

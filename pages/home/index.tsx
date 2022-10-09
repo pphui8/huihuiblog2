@@ -19,7 +19,7 @@ const index = (props: Props) => {
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const baseURL = config.baseURL;
-  const res: Res = await fetch(`${baseURL}/index`).then((res) => res.json());
+  const res: Res = await fetch(`${baseURL}index`).then((res) => res.json());
   return {
     props: { data: res },
   };
