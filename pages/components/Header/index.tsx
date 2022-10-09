@@ -22,23 +22,23 @@ export default function index({}: Props) {
       <nav>
         <ul>
           <li>
-            <Link href="/">
+            <Link href="/home">
               <h1>huihuiblog</h1>
             </Link>
           </li>
           <li>
-            <Link href="https://pphui8.com">
+            <Link href="/home">
               <p>home</p>
-            </Link>
-          </li>
-          <li>
-            <Link href="/API">
-              <p>API</p>
             </Link>
           </li>
           <li>
             <Link href="/aboutme">
               <p>about</p>
+            </Link>
+          </li>
+          <li>
+            <Link href="https://pphui8.com">
+              <p>pphui8</p>
             </Link>
           </li>
         </ul>
