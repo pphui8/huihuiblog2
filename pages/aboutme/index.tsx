@@ -12,7 +12,6 @@ let isShow = false;
 const index = (props: Props) => {
   const [article, setArticle] = useState("Loading...");
   const isNight = false;
-  // const [isShow, setIsShow] = useState(false);
   const kakoiitoomou = {
     light:
       "https://tvax4.sinaimg.cn/large/006z6YU4ly1h0lxd388pej30m60epag8.jpg",

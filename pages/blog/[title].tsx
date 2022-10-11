@@ -32,6 +32,8 @@ type FiletreeList = {
 let cur_index: FiletreeNode[] = [];
 let cur_file: FiletreeNode[] = [];
 let indexHasDeal = false;
+let cur_url = "";
+let pre_url = "";
 
 function index({ data }: Props) {
   const [index, setIndex] = useState<FiletreeNode[]>([]);
@@ -57,7 +59,6 @@ function index({ data }: Props) {
         cur_file.push(item);
       }
     });
-    console.log(cur_index);
     // 自动展示一个页面(优先README.md)
     if(cur_file.length != 0) {
       let has_rm = false;
@@ -71,6 +72,7 @@ function index({ data }: Props) {
       if(!has_rm) showFile(cur_file[0].url, cur_file[0].path);
     }
     indexHasDeal = true;
+    setIndex(cur_index);
   }
   
   useEffect(() => {
@@ -87,6 +89,31 @@ function index({ data }: Props) {
         setArticle(tmp);
       })
       .catch(err => toast.error(`Request Failed`));
+  }
+
+  const toFile = (item: FiletreeNode) => {
+    if(item.path.endsWith(".rar")) {
+      setArticle("暂不支持预览压缩文件");
+      return;
+    }
+    showFile(item.url, item.path);
+  }
+
+  const toIndex = (item: FiletreeNode) => {
+    if (item.path === "..") {
+      toast.success("返回上一级");
+      return;
+    }
+    cur_index = [];
+    cur_file = [];
+    indexHasDeal = false;
+    fetch(item.url)
+      .then(response => response.json())
+      .then(data => {
+        dealIndex(data.tree);
+      })
+      .catch(err => toast.error(`Request Failed`));
+    
   }
 
   return (
@@ -114,7 +141,7 @@ function index({ data }: Props) {
       >
         {cur_index.map((value) => {
           return (
-            <li key={nanoid()}>
+            <li key={nanoid()} onClick={() => toIndex(value)}>
               <AiOutlineFolder className={myStyles.svg} />
               {value.path}
             </li>
@@ -122,7 +149,7 @@ function index({ data }: Props) {
         })}
         {cur_file.map((value) => {
           return (
-            <li key={nanoid()}>
+            <li key={nanoid()} onClick={() => toFile(value)} >
               <AiFillFile className={myStyles.svg} />
               {value.path}
             </li>
@@ -149,86 +176,19 @@ function index({ data }: Props) {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const title = context.query.title;
-  // const res = await fetch(`${config.baseURL}blog/${title}`)
-  //   .then((res) => res.json())
-  //   .then((res: BlogRoot) => {
-  //     return res.blog_root.replace('"', "").replace('"', "");
-  //   })
-  //   .then(async (blogRoot) => {
-  //     const tmpurl = `https://api.github.com/repos/pphui8/` + blogRoot + `/git/trees/main`;
-  //     return await fetch(tmpurl)
-  //       .then((res) => res.json())
-  //       .then((res: FiletreeList) => {
-  //         return res.tree;
-  //       });
-  //   })
-
-  let res: FiletreeNode[] = [
-    {
-      path: ".gitignore",
-      mode: "100644",
-      type: "blob",
-      sha: "a547bf36d8d11a4f89c59c144f24795749086dd1",
-      size: 253,
-      url: "https://api.github.com/repos/pphui8/khaos/git/blobs/a547bf36d8d11a4f89c59c144f24795749086dd1",
-    },
-    {
-      path: "LICENCE",
-      mode: "100644",
-      type: "blob",
-      sha: "0ed60b19f87129f5283a8b25bf1724735d3c393c",
-      size: 1062,
-      url: "https://api.github.com/repos/pphui8/khaos/git/blobs/0ed60b19f87129f5283a8b25bf1724735d3c393c",
-    },
-    {
-      path: "README.md",
-      mode: "100644",
-      type: "blob",
-      sha: "c5174923f533a8938a06d6c520379ed0abbdb3d4",
-      size: 74,
-      url: "https://api.github.com/repos/pphui8/khaos/git/blobs/c5174923f533a8938a06d6c520379ed0abbdb3d4",
-    },
-    {
-      path: "index.html",
-      mode: "100644",
-      type: "blob",
-      sha: "f329782800244ef4a140a2bf66da1111642ec2d8",
-      size: 357,
-      url: "https://api.github.com/repos/pphui8/khaos/git/blobs/f329782800244ef4a140a2bf66da1111642ec2d8",
-    },
-    {
-      path: "package-lock.json",
-      mode: "100644",
-      type: "blob",
-      sha: "706d85ff7b74762e3fa3ec1f6ed2fbb427cfc5f5",
-      size: 141425,
-      url: "https://api.github.com/repos/pphui8/khaos/git/blobs/706d85ff7b74762e3fa3ec1f6ed2fbb427cfc5f5",
-    },
-    {
-      path: "package.json",
-      mode: "100644",
-      type: "blob",
-      sha: "7309524f40bfcd47f495994bb5a8de0d413d7bba",
-      size: 753,
-      url: "https://api.github.com/repos/pphui8/khaos/git/blobs/7309524f40bfcd47f495994bb5a8de0d413d7bba",
-    },
-    {
-      path: "repo.rar",
-      mode: "100644",
-      type: "blob",
-      sha: "8ba62cd8080193858e8367936d3449ff5fca7dac",
-      size: 917870,
-      url: "https://api.github.com/repos/pphui8/khaos/git/blobs/8ba62cd8080193858e8367936d3449ff5fca7dac",
-    },
-    {
-      path: "public",
-      mode: "040000",
-      type: "tree",
-      size: 0,
-      sha: "557b37c44d5cb352ff331f90e7fba0189cdfa65e",
-      url: "https://api.github.com/repos/pphui8/khaos/git/trees/557b37c44d5cb352ff331f90e7fba0189cdfa65e",
-    },
-  ];
+  const res = await fetch(`${config.baseURL}blog/${title}`)
+    .then((res) => res.json())
+    .then((res: BlogRoot) => {
+      return res.blog_root.replace('"', "").replace('"', "");
+    })
+    .then(async (blogRoot) => {
+      const tmpurl = `https://api.github.com/repos/pphui8/` + blogRoot + `/git/trees/main`;
+      return await fetch(tmpurl)
+        .then((res) => res.json())
+        .then((res: FiletreeList) => {
+          return res.tree;
+        });
+    });
   
   return {
     props: { data: res },

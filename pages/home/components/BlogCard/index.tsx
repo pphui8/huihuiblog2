@@ -19,7 +19,8 @@ const index = (props: Props) => {
   const isNight = false;
   return (
     <div className={isNight ? styles.blog_night : styles.blog}>
-      <Link href={`/article/${data.name}`}>
+      {/* base64 encode data.name */}
+      <Link href={`/blog/${data.name}`}>
         <div className={styles.title}>
           <p>{data.name}</p>
         </div>
