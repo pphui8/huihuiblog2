@@ -19,7 +19,7 @@ const index = (props: Props) => {
   const isNight = false;
   return (
     <div className={isNight ? styles.blog_night : styles.blog}>
-      <Link href="/article">
+      <Link href={`/article/${data.name}`}>
         <div className={styles.title}>
           <p>{data.name}</p>
         </div>

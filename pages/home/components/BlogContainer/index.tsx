@@ -15,7 +15,7 @@ export type Res = {
 
 const index = (props: Props) => {
   const isNight = false;
-  const index = props.data.reverse();
+  const index = props.data.sort((a, b) => b.id - a.id);
 
   const tomodati = {
     light:
