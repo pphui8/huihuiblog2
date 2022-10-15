@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import ReactMarkdown from 'react-markdown';
 import Message from './components/Message';
-import styles from "./markdown.module.css";
 import mystyles from "./Article.module.css";
 import toast from 'react-hot-toast';
 import Filing from './components/Filing';
+import styles from '../../styles/markdown.module.css';
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
+import remarkGfm from 'remark-gfm';
 
 type Props = {}
 
@@ -22,10 +23,10 @@ const index = (props: Props) => {
       .then((response) => response.text())
       .then((res) => setArticle(res))
       .catch((err) => {
-        if(isShow === false) {
-          setArticle("获取文章失败")
-          if(isShow === false) {
-            toast.error("获取文章失败")
+        if (isShow === false) {
+          setArticle("获取文章失败");
+          if (isShow === false) {
+            toast.error("获取文章失败");
             isShow = true;
           }
         }
@@ -40,11 +41,11 @@ const index = (props: Props) => {
         <div
           className={
             isNight
-              ? mystyles.article + " " + styles.markdown_body_dark
-              : mystyles.article + " " + styles.markdown_body_light
+              ? mystyles.article + " " + "markdown_body_dark"
+              : mystyles.article + " " + styles.markdown_body
           }
         >
-          <ReactMarkdown children={article}></ReactMarkdown>
+          <ReactMarkdown children={article} remarkPlugins={[remarkGfm]} />
         </div>
         <Filing />
         <Message />

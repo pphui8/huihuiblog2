@@ -2,9 +2,6 @@
     position: relative;
     min-height: calc(100vh - 173px);
 }
-.aboutMe li {
-    list-style: none;
-}
 .aboutMe .container {
     position: relative;
     width: 80%;

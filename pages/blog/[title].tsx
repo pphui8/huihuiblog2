@@ -5,7 +5,9 @@ import { toast } from 'react-hot-toast';
 import { AiFillFile, AiOutlineFolder } from "react-icons/ai";
 import myStyles from './article.module.css'
 import { nanoid } from "nanoid";
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import styles from "../../styles/markdown.module.css";
 
 type Props = {
   data: FiletreeNode[];
@@ -164,10 +166,12 @@ function index({ data }: Props) {
     return (
       <div
         className={
-          isNight ? myStyles.article + ' ' + " markdown-body-dark" :  myStyles.article + ' ' +  "markdown-body"
+          isNight
+            ? myStyles.article + " " + styles.markdown_body_dark
+            : myStyles.article + " " + styles.markdown_body
         }
       >
-        <ReactMarkdown children={article}></ReactMarkdown>
+        <ReactMarkdown children={article} remarkPlugins={[remarkGfm]} />
       </div>
     );
   }
@@ -183,7 +187,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     })
     .then(async (blogRoot) => {
       const tmpurl = `https://api.github.com/repos/pphui8/` + blogRoot + `/git/trees/main`;
-      return await fetch(tmpurl)
+      return await fetch(tmpurl, {
+        method: "GET",
+        headers: {
+          // Authorization: `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`,
+          Authorization: `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`,
+        },
+      })
         .then((res) => res.json())
         .then((res: FiletreeList) => {
           return res.tree;

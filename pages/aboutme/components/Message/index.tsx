@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { BsFillMarkdownFill } from "react-icons/bs";
 import { VscOpenPreview } from "react-icons/vsc";
-import styles from "./markdown.module.css";
 import mystyles from "./Message.module.css";
-import ReactMarkdown from 'react-markdown';
 import toast from 'react-hot-toast';
 import config from '../../../../config';
+import ReactMarkdown from "react-markdown";
+import remarkGfm from 'remark-gfm';
+import styles from '../../../../styles/markdown.module.css';
 
 type Comment = {
   id: number
@@ -31,11 +32,11 @@ function Msg({msg} : {msg: Comment}) {
       <div
         className={
           isNight
-            ? styles.markdown_body_night + " " + mystyles.msgArticle
-            : styles.markdown_body + " " + mystyles.msgArticle
+            ? "markdown_body_night" + " " + mystyles.msgArticle
+            : styles + " " + mystyles.msgArticle
         }
       >
-        <ReactMarkdown children={msg.value}></ReactMarkdown>
+        <ReactMarkdown children={msg.value} remarkPlugins={[remarkGfm]} />
       </div>
       <div className={mystyles.timeTag}>{msg.time}</div>
     </div>
@@ -183,9 +184,7 @@ export default function index() {
               ? mystyles.preview + " " + styles.markdown_body_night
               : mystyles.preview + " " + styles.markdown_body
           }
-        >
-          <ReactMarkdown children={message}></ReactMarkdown>
-        </div>
+        ></div>
       ) : null}
       <div className={mystyles.publshedMsg}>
         {comments.map((item, index) => {

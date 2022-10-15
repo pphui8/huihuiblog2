@@ -1,0 +1,22 @@
+.errorPageContainer {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.errorPageContainer h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-family: 'Bradley Hand ITC', cursive;
+}
+
+.errorPageContainer p {
+    font-family: 'UD Digi Kyokasho NK-R';
+}
+
+.errorPageContainer img {
+    height: 200px;
+}
