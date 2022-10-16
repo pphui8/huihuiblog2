@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Message from './components/Message';
 import mystyles from "./Article.module.css";
 import toast from 'react-hot-toast';
@@ -6,13 +6,14 @@ import Filing from './components/Filing';
 import styles from '../../styles/markdown.module.css';
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 import remarkGfm from 'remark-gfm';
+import { ThemeContext } from "../ThemeContext";
 
 type Props = {}
 
 let isShow = false;
 const index = (props: Props) => {
   const [article, setArticle] = useState("Loading...");
-  const isNight = false;
+  const { isNight } = useContext(ThemeContext);
   const kakoiitoomou = {
     light:
       "https://tvax4.sinaimg.cn/large/006z6YU4ly1h0lxd388pej30m60epag8.jpg",
@@ -24,9 +25,9 @@ const index = (props: Props) => {
       .then((res) => setArticle(res))
       .catch((err) => {
         if (isShow === false) {
-          setArticle("获取文章失败");
+          setArticle("failed to load");
           if (isShow === false) {
-            toast.error("获取文章失败");
+            toast.error("failed to load");
             isShow = true;
           }
         }
@@ -41,7 +42,7 @@ const index = (props: Props) => {
         <div
           className={
             isNight
-              ? mystyles.article + " " + "markdown_body_dark"
+              ? mystyles.article + " " + styles.markdown_body_dark
               : mystyles.article + " " + styles.markdown_body
           }
         >

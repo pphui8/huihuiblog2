@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './Profile.module.css'
+import { ThemeContext } from "../../../ThemeContext";
 
 type Props = {}
 
 const index = (props: Props) => {
-  const isNight = false;
+  const { isNight } = useContext(ThemeContext);
   const sakamoto = {
     normal:
       "https://tvax4.sinaimg.cn/large/006z6YU4ly1h0fl000u43j31e00u8afz.jpg",

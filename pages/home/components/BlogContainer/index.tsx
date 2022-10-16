@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import BlogCard from '../BlogCard';
 import styles from './BlogContainer.module.css'
+import { ThemeContext } from "../../../ThemeContext";
 
 type Props = {
   data: Res[];
@@ -14,7 +15,7 @@ export type Res = {
 };
 
 const index = (props: Props) => {
-  const isNight = false;
+  const { isNight } = useContext(ThemeContext);
   const index = props.data.sort((a, b) => b.id - a.id);
 
   const tomodati = {

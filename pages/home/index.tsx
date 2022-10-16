@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Profile from "./components/Profile";
 import BlogContainer, { Res } from "./components/BlogContainer";
 import config from '../../config';
 import { GetServerSideProps } from 'next';
-import styles from './home.module.css'
+import styles from './home.module.css';
+import { ThemeContext } from "../ThemeContext";
 
 type Props = {
   data: Res[];
@@ -12,6 +13,7 @@ type Props = {
 }
 
 const index = (props: Props) => {
+  const { isNight } = useContext(ThemeContext);
   if (props.status === 404) {
     return (
       <div className={styles.errorPageContainer}>
@@ -25,10 +27,10 @@ const index = (props: Props) => {
     );
   } else {
     return (
-      <div>
+      <>
         <Profile />
         <BlogContainer data={props.data}></BlogContainer>
-      </div>
+      </>
     );
   }
 }

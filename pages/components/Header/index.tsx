@@ -1,19 +1,19 @@
 import Link from 'next/link';
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './Header.module.css'
+import { ThemeContext } from "../../ThemeContext";
 
 type Props = {}
 
 export default function index({}: Props) {
-  const isNight = false;
-  const [switchLoc, setSwitchLoc] = React.useState("switch");
-  const setNight = null;
+  const { isNight, toggleTheme } = useContext(ThemeContext);
+  const [switchLoc, setSwitchLoc] = React.useState("up");
   const lightSwitch = () => {
     // 设置拉开关的小动画
-    setSwitchLoc("switchDown");
-    // setNight();
+    setSwitchLoc("down");
+    toggleTheme();
     setTimeout(() => {
-      setSwitchLoc("switch");
+      setSwitchLoc("up");
     }, 300);
   };
 
@@ -45,7 +45,10 @@ export default function index({}: Props) {
       </nav>
       <div className={styles.lighter}>
         <div className={styles.himo}></div>
-        <div className={switchLoc} onClick={lightSwitch}></div>
+        <div
+          className={switchLoc === "up" ? styles.switch : styles.switchDown}
+          onClick={lightSwitch}
+        ></div>
       </div>
     </header>
   );

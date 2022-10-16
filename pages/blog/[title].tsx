@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { GetServerSideProps } from "next";
 import config from '../../config';
 import { toast } from 'react-hot-toast';
@@ -8,6 +8,7 @@ import { nanoid } from "nanoid";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import styles from "../../styles/markdown.module.css";
+import { ThemeContext } from "../ThemeContext";
 
 type Props = {
   data: FiletreeNode[];
@@ -38,7 +39,6 @@ let cur_url = "";
 let pre_url = "";
 
 function index({ data }: Props) {
-  const [index, setIndex] = useState<FiletreeNode[]>([]);
   const [article, setArticle] = useState("");
 
   const dealIndex = (data: FiletreeNode[]) => {
@@ -74,7 +74,8 @@ function index({ data }: Props) {
       if(!has_rm) showFile(cur_file[0].url, cur_file[0].path);
     }
     indexHasDeal = true;
-    setIndex(cur_index);
+    // refresh the page
+    setArticle(article);
   }
   
   useEffect(() => {
@@ -82,20 +83,25 @@ function index({ data }: Props) {
   }, [indexHasDeal]);
 
   const showFile = (url: string, filename: string) => {
-    fetch(url)
-      .then(response => response.json())
-      .then(article => {
+    fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${config.token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((article) => {
         let tmp = Buffer.from(article.content, article.encoding).toString();
         // 如果不是 Markdown 则使用代码块包裹
-        if(filename.search(".md") === -1) tmp = "```" + tmp + "```";
+        if (filename.search(".md") === -1) tmp = "```" + tmp + "```";
         setArticle(tmp);
       })
-      .catch(err => toast.error(`Request Failed`));
+      .catch((err) => toast.error(`Request Failed`));
   }
 
   const toFile = (item: FiletreeNode) => {
     if(item.path.endsWith(".rar")) {
-      setArticle("暂不支持预览压缩文件");
+      setArticle("zip file is not supported");
       return;
     }
     showFile(item.url, item.path);
@@ -109,12 +115,17 @@ function index({ data }: Props) {
     cur_index = [];
     cur_file = [];
     indexHasDeal = false;
-    fetch(item.url)
-      .then(response => response.json())
-      .then(data => {
+    fetch(item.url, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${config.token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
         dealIndex(data.tree);
       })
-      .catch(err => toast.error(`Request Failed`));
+      .catch((err) => toast.error(`Request Failed`));
     
   }
 
@@ -135,7 +146,7 @@ function index({ data }: Props) {
   function PojIndex(data: PojProps) {
     const cur_index = data.cur_index;
     const cur_file = data.cur_file;
-    const isNight = false;
+    const { isNight } = useContext(ThemeContext);
     return (
       <ul
         className={isNight ? myStyles.index_night : myStyles.index}
@@ -151,7 +162,7 @@ function index({ data }: Props) {
         })}
         {cur_file.map((value) => {
           return (
-            <li key={nanoid()} onClick={() => toFile(value)} >
+            <li key={nanoid()} onClick={() => toFile(value)}>
               <AiFillFile className={myStyles.svg} />
               {value.path}
             </li>
@@ -162,7 +173,11 @@ function index({ data }: Props) {
   };
 
   function Article({ article }: { article: string }) {
-    const isNight = false;
+    const { isNight } = useContext(ThemeContext);
+    const [articleContent, setArticleContent] = useState("");
+    useEffect(() => {
+      setArticleContent(article);
+    }, []);
     return (
       <div
         className={
@@ -171,7 +186,7 @@ function index({ data }: Props) {
             : myStyles.article + " " + styles.markdown_body
         }
       >
-        <ReactMarkdown children={article} remarkPlugins={[remarkGfm]} />
+        <ReactMarkdown children={articleContent} remarkPlugins={[remarkGfm]} />
       </div>
     );
   }
@@ -190,8 +205,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       return await fetch(tmpurl, {
         method: "GET",
         headers: {
-          // Authorization: `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`,
-          Authorization: `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`,
+          Authorization: `Bearer ${config.token}`,
         },
       })
         .then((res) => res.json())

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { BsFillMarkdownFill } from "react-icons/bs";
 import { VscOpenPreview } from "react-icons/vsc";
 import mystyles from "./Message.module.css";
@@ -7,6 +7,7 @@ import config from '../../../../config';
 import ReactMarkdown from "react-markdown";
 import remarkGfm from 'remark-gfm';
 import styles from '../../../../styles/markdown.module.css';
+import { ThemeContext } from "../../../ThemeContext";
 
 type Comment = {
   id: number
@@ -17,7 +18,7 @@ type Comment = {
 }
 
 function Msg({msg} : {msg: Comment}) {
-  const isNight = false;
+  const { isNight } = useContext(ThemeContext);
   const toUrl = () => {
     if (msg.url === "none") {
       return;
@@ -32,8 +33,8 @@ function Msg({msg} : {msg: Comment}) {
       <div
         className={
           isNight
-            ? "markdown_body_night" + " " + mystyles.msgArticle
-            : styles + " " + mystyles.msgArticle
+            ? styles.markdown_body_night + " " + mystyles.msgArticle
+            : styles.markdown_body + " " + mystyles.msgArticle
         }
       >
         <ReactMarkdown children={msg.value} remarkPlugins={[remarkGfm]} />
@@ -44,7 +45,7 @@ function Msg({msg} : {msg: Comment}) {
 }
 
 export default function index() {
-  const isNight = false;
+  const { isNight } = useContext(ThemeContext);
   const baseURL = config.baseURL;
   const [message, setMessage] = useState("");
   const [showPreview, setShowPreview] = useState(false);
@@ -140,7 +141,7 @@ export default function index() {
   return (
     <div
       className={
-        isNight ? mystyles.messageContainerNight : mystyles.messageContainer
+        isNight ? mystyles.messageContainerNight + ' ' + mystyles.messageContainer : mystyles.messageContainer
       }
     >
       <div className={mystyles.editContainer}>

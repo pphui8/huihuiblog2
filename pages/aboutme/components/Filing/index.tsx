@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
 import config from '../../../../config';
 import styles from './Filing.module.css';
+import { ThemeContext } from "../../../ThemeContext";
 
 type Props = {}
 
@@ -19,7 +20,7 @@ const index = (props: Props) => {
     blog: 0,
     code: 0,
   });
-  const isNight = false;
+  const { isNight } = useContext(ThemeContext);
   const baseURL = config.baseURL;
   const getFiling = () => {
     fetch(baseURL + `filing`)

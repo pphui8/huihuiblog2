@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from "./BlogCard.module.css";
+import { ThemeContext } from "../../../ThemeContext";
 
 type Props = {
   data: Res;
@@ -16,7 +17,7 @@ export type Res = {
 
 const index = (props: Props) => {
   const data = props.data;
-  const isNight = false;
+  const { isNight } = useContext(ThemeContext);
   return (
     <div className={isNight ? styles.blog_night : styles.blog}>
       {/* base64 encode data.name */}
