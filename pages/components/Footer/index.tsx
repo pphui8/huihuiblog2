@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './Footer.module.css'
+import { ThemeContext } from "../../ThemeContext";
 
 type Props = {}
 
 export default function index({}: Props) {
-  const isNight = false;
+  const { isNight } = useContext(ThemeContext);
   const ashiato = {
     normal:
       "https://tvax3.sinaimg.cn/large/006z6YU4ly1h0fl1nqkmhj30lk0brwf8.jpg",
