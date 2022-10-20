@@ -1,8 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import toast from "react-hot-toast";
 import styles from "../styles/error.module.css";
 import { ThemeContext } from "./ThemeContext";
 
+let isShow = false;
 const index = () => {
+  useEffect(() => {
+    if (isShow) {
+      toast.error("error Σ(°ロ°)");
+    }
+    isShow = true;
+    return () => {
+      isShow = false;
+    };
+  }, [isShow]);
+
   const { isNight } = useContext(ThemeContext);
   return (
     <div

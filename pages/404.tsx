@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react'
-import Image from "next/image";
+import React, { useContext, useEffect } from 'react'
 import styles from '../styles/404.module.css'
-import hakase from '../public/hakase.png'
 import { toast } from 'react-hot-toast';
+import { ThemeContext } from "./ThemeContext";
 
 let isShow = false;
 const index = () => {
@@ -12,14 +11,24 @@ const index = () => {
       toast.error("404 Not Found（￣□￣；）");
     }
     isShow = true;
+    return () => {
+      isShow = false;
+    }
   }, [isShow]);
-  
+
+  const { isNight } = useContext(ThemeContext);  
   return (
-    <div className={styles.midContainer}>
-    <Image alt="hakasedayo" src={hakase} width={102} height={160} className={styles.img}></Image>
-    <p className={styles.p}>
-        404 Not Found
-    </p>
+    <div className={isNight ? styles.midContainerNight : styles.midContainer}>
+      <img
+        alt="hakasedayo"
+        src={
+          isNight
+            ? "https://img1.imgtp.com/2022/10/19/8LJEmBVd.png"
+            : "https://img1.imgtp.com/2022/10/15/Eu34tPL2.png"
+        }
+      ></img>
+      <h1>404 Not Found</h1>
+      <p>ごめんなさい(｡•́︿•̀｡)</p>
     </div>
   );
 }

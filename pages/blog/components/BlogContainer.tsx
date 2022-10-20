@@ -7,10 +7,10 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import styles from "../../../styles/markdown.module.css";
 import { ThemeContext } from "../../ThemeContext";
-import config from "../../../config";
 
-type Props = {
+export type BlogProps = {
   data: FiletreeNode[];
+  blogRoot: string;
 };
 
 export type FiletreeNode = {
@@ -29,10 +29,9 @@ export type FiletreeList = {
 let cur_index: FiletreeNode[] = [];
 let cur_file: FiletreeNode[] = [];
 let indexHasDeal = false;
-let cur_url = "";
-let pre_url = "";
+let rootStack: string[] = [];
 
-export default function index({ data }: Props) {
+export default function index({ data, blogRoot }: BlogProps) {
   const [article, setArticle] = useState("");
 
   const dealIndex = (data: FiletreeNode[]) => {
@@ -68,16 +67,19 @@ export default function index({ data }: Props) {
       if (!has_rm) showFile(cur_file[0].url, cur_file[0].path);
     }
     indexHasDeal = true;
+    // rootStack.push(blogRoot);
     // refresh the page
     setArticle(article);
   };
 
   useEffect(() => {
+    rootStack.push(blogRoot);
     dealIndex(data);
     return () => {
       indexHasDeal = false;
       cur_index = [];
       cur_file = [];
+      rootStack = [];
     };
   }, [indexHasDeal]);
 
@@ -107,33 +109,55 @@ export default function index({ data }: Props) {
   };
 
   const toIndex = (item: FiletreeNode) => {
-    if (item.path === "..") {
-      toast.success("返回上一级");
-      return;
-    }
     cur_index = [];
     cur_file = [];
     indexHasDeal = false;
-    fetch(item.url, {
-      method: "GET",
-      headers: {
-        // Authorization: `Bearer ${config.token}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        dealIndex(data.tree);
+    if (item.path === "..") {
+      console.log(rootStack);
+      if (rootStack.length === 1) {
+        toast.error("This is the root directory");
+        return;
+      } else {
+        const preRoot = rootStack.pop();
+        if (preRoot === undefined) {
+          toast.error("Emmm... Something wrong");
+          return;
+        }
+        fetch(preRoot, {
+          method: "GET",
+          headers: {
+            // Authorization: `Bearer ${config.token}`,
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            dealIndex(data.tree);
+          })
+          .catch((err) => toast.error(`Request Failed`));
+      }
+    } else {
+      fetch(item.url, {
+        method: "GET",
+        headers: {
+          // Authorization: `Bearer ${config.token}`,
+        },
       })
-      .catch((err) => toast.error(`Request Failed`));
+        .then((response) => response.json())
+        .then((data) => {
+          dealIndex(data.tree);
+        })
+        .catch((err) => toast.error(`Request Failed`));
+        rootStack.push(item.url);
+      }
   };
 
   return (
-      <div className={myStyles.article}>
+    <div className={myStyles.article}>
       <div className={myStyles.container}>
         <PojIndex cur_file={cur_file} cur_index={cur_index} />
         <Article article={article} />
       </div>
-      </div>
+    </div>
   );
 
   type PojProps = {
