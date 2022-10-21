@@ -7,6 +7,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import styles from "../../../styles/markdown.module.css";
 import { ThemeContext } from "../../ThemeContext";
+import { toUnicode } from "punycode";
 
 export type BlogProps = {
   data: FiletreeNode[];
@@ -118,7 +119,9 @@ export default function index({ data, blogRoot }: BlogProps) {
         toast.error("This is the root directory");
         return;
       } else {
-        const preRoot = rootStack.pop();
+        todo!()
+        const preRoot = rootStack[rootStack.length - 1];
+        rootStack.pop();
         if (preRoot === undefined) {
           toast.error("Emmm... Something wrong");
           return;

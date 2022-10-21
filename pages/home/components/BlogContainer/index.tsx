@@ -28,13 +28,8 @@ const index = (props: Props) => {
   return (
     <div className={styles.blogs}>
       <div className={styles.container}>
-        {index.map((elem) => {
-          return (
-            <BlogCard
-              data={elem}
-              key={elem.id}
-            ></BlogCard>
-          );
+        {index.map((elem, index) => {
+          return <BlogCard data={elem} key={elem.id} delay={index} />;
         })}
       </div>
       <img

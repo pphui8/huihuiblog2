@@ -2,9 +2,11 @@ import Link from 'next/link';
 import React, { useContext } from 'react'
 import styles from "./BlogCard.module.css";
 import { ThemeContext } from "../../../ThemeContext";
+import { InView } from "react-intersection-observer";
 
 type Props = {
   data: Res;
+  delay: number;
 };
 
 export type Res = {
@@ -14,27 +16,45 @@ export type Res = {
   tag: string;
 };
 
-
+let isAnimated = false;
 const index = (props: Props) => {
   const data = props.data;
+  const delay = props.delay;
   const { isNight } = useContext(ThemeContext);
+  const [inView, setInView] = React.useState(false);
   return (
-    <div className={isNight ? styles.blog_night : styles.blog}>
-      {/* base64 encode data.name */}
-      <Link href={`/blog/${data.name}`}>
-        <div className={styles.title}>
-          <p>{data.name}</p>
+    <InView
+      onChange={(inView) => {
+        if (!inView) return;
+        setInView(inView);
+      }}
+    >
+      {({ ref }) => (
+        <div
+          className={inView ? styles.inView : ""}
+          style={{ animationDelay: delay * 0.1 + "s" }}
+        >
+          <div
+            className={isNight ? styles.blog_night : styles.blog}
+            ref={ref}
+          >
+            <Link href={`/blog/${data.name}`}>
+              <div className={styles.title}>
+                <p>{data.name}</p>
+              </div>
+            </Link>
+            <div className={styles.blog_line}></div>
+            <div className={styles.disc}>
+              <p>{data.descript}</p>
+            </div>
+            <div className={styles.blog_line}></div>
+            <div className={styles.blog_footer}>
+              <div className={styles.tag}>{data.tag}</div>
+            </div>
+          </div>
         </div>
-      </Link>
-      <div className={styles.blog_line}></div>
-      <div className={styles.disc}>
-        <p>{data.descript}</p>
-      </div>
-      <div className={styles.blog_line}></div>
-      <div className={styles.blog_footer}>
-        <div className={styles.tag}>{data.tag}</div>
-      </div>
-    </div>
+      )}
+    </InView>
   );
 }
 
