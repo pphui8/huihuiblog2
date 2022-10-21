@@ -19,7 +19,7 @@
 }
 .article .container {
     position: relative;
-    width: 80%;
+    width: 90%;
     left: 50%;
     transform: translateX(-50%);
 }

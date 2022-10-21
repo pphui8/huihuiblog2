@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import styles from './Header.module.css'
 import { ThemeContext } from "../../ThemeContext";
 
@@ -12,10 +12,22 @@ export default function index({}: Props) {
     // 设置拉开关的小动画
     setSwitchLoc("down");
     toggleTheme();
+    window.localStorage.setItem("isNight", isNight ? "false" : "true");
     setTimeout(() => {
       setSwitchLoc("up");
     }, 300);
   };
+  useEffect(() => {
+    let origin_light = window.localStorage.getItem("isNight");
+    // 如果是第一次启动
+    if (origin_light == null) {
+      window.localStorage.setItem("isNight", "false");
+      origin_light = "false";
+    }
+    if (isNight.toString() !== origin_light) {
+      toggleTheme();
+    }
+  }, []);
 
   return (
     <header className={isNight ? styles.header_night : styles.header}>

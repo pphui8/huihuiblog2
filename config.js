@@ -1,4 +1,4 @@
 export default {
   baseURL: "https://api.pphui8.com/",
-  token: "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",
+  token: "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",
 };

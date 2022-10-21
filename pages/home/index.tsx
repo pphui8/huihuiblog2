@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Profile from "./components/Profile";
 import BlogContainer, { Res } from "./components/BlogContainer";
 import config from '../../config';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from "next";
 
 type Error = {
   error: string;
@@ -17,7 +17,6 @@ type Props = {
 const index = (props: Props) => {
   const { data } = props;
   const router = useRouter();
-
   useEffect(() => {
     if (data.toString() === '[object Object]') {
       router.push('/error');
@@ -36,7 +35,7 @@ const index = (props: Props) => {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const baseURL = config.baseURL;
   let res: Res | Error = await fetch(`${baseURL}index`)
     .then((res) => res.json())
@@ -49,6 +48,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: { data: res },
   };
-}
+};
 
 export default index

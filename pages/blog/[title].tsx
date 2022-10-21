@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react'
-import { GetServerSideProps } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import BlogContainer, { FiletreeList, FiletreeNode } from './components/BlogContainer';
 import config from '../../config';
 import { useRouter } from "next/router";
-import { BlogProps } from './components/BlogContainer';
+import { ParsedUrlQuery } from 'querystring';
 
 type Props = {
   data: FiletreeNode[] | undefined;
   blogRoot: string;
+  status: number;   // 200: success, 500: error
 };
 
 export type BlogRoot = {
@@ -15,23 +16,62 @@ export type BlogRoot = {
   status: number;
 };
 
-function index({ data, blogRoot }: Props) {
+function index({ data, blogRoot, status}: Props) {
   const router = useRouter();
+  const blogData = data as FiletreeNode[];
   useEffect(() => {
-    if (data == undefined) {
+    if (status === 500) {
       router.push("/error");
     }
   }, []);
-  if(data == undefined) return <></>;
-  return <BlogContainer data={data} blogRoot={blogRoot} />;
+  if (status === 500) return <></>;
+  return <BlogContainer data={blogData} blogRoot={blogRoot} />;
 }
 
 export default index
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const title = context.query.title;
-  let tmpurl;
-  const res: FiletreeNode[] | null = await fetch(`${config.baseURL}blog/${title}`)
+type Res = {
+  descript: string;
+  id: number;
+  name: string;
+  tag: string;
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const res: Res[] = await fetch(`${config.baseURL}index`)
+    .then((res) => res.json())
+
+  const paths = res.map((node) => ({
+    params: { title: Buffer.from(node.name).toString("base64") },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+interface IParams extends ParsedUrlQuery {
+  title: string;
+}
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { title } = context.params as IParams;
+  const empty = [
+    {
+      path: "",
+      mode: "",
+      type: "",
+      sha: "",
+      size: 0,
+      url: "",
+    },
+  ];
+  const decodedTitle = Buffer.from(title, 'base64').toString("utf-8");
+  let tmpurl = "";
+  let res: FiletreeNode[] | null = await fetch(
+    `${config.baseURL}blog/${decodedTitle}`
+  )
     .then((res) => res.json())
     .then((res: BlogRoot) => {
       return res.blog_root.replace('"', "").replace('"', "");
@@ -41,12 +81,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       return await fetch(tmpurl, {
         method: "GET",
         headers: {
-          // Authorization: `Bearer ${config.token}`,
+          Authorization: `Bearer ${config.token}`,
         },
       })
         .then((res) => res.json())
         .then((res: FiletreeList) => {
-          if(!res.tree) {
+          if (!res.tree) {
             return null;
           } else {
             return res.tree;
@@ -60,6 +100,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       return null;
     });
   return {
-    props: { data: res, blogRoot: tmpurl },
+    props: {
+      data: res === null ? empty : res,
+      blogRoot: tmpurl,
+      status: res === null ? 500 : 200,
+    },
   };
 };

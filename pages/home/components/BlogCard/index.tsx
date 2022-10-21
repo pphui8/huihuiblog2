@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import styles from "./BlogCard.module.css";
 import { ThemeContext } from "../../../ThemeContext";
 import { InView } from "react-intersection-observer";
@@ -16,10 +16,10 @@ export type Res = {
   tag: string;
 };
 
-let isAnimated = false;
 const index = (props: Props) => {
   const data = props.data;
-  const delay = props.delay;
+  const dataurl = Buffer.from(data.name).toString("base64");
+  let delay = props.delay < 4 ? props.delay * 2 : 3;
   const { isNight } = useContext(ThemeContext);
   const [inView, setInView] = React.useState(false);
   return (
@@ -34,11 +34,8 @@ const index = (props: Props) => {
           className={inView ? styles.inView : ""}
           style={{ animationDelay: delay * 0.1 + "s" }}
         >
-          <div
-            className={isNight ? styles.blog_night : styles.blog}
-            ref={ref}
-          >
-            <Link href={`/blog/${data.name}`}>
+          <div className={isNight ? styles.blog_night : styles.blog} ref={ref}>
+            <Link href={`/blog/${dataurl}`}>
               <div className={styles.title}>
                 <p>{data.name}</p>
               </div>

@@ -23,6 +23,7 @@
     overflow: hidden;
     color: #000;
     margin-bottom: 30px;
+    transition: 1s;
 }
 .blog:hover {
     box-shadow: 5px 4px 10px 7px #d0d0d0;

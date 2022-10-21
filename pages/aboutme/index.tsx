@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import Message from './components/Message';
 import mystyles from "./Article.module.css";
 import toast from 'react-hot-toast';
 import Filing from './components/Filing';
@@ -49,7 +48,6 @@ const index = (props: Props) => {
           <ReactMarkdown children={article} remarkPlugins={[remarkGfm]} />
         </div>
         <Filing />
-        <Message />
       </div>
       <img
         className={mystyles.kakoiitoomou}

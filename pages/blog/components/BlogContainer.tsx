@@ -8,6 +8,7 @@ import remarkGfm from "remark-gfm";
 import styles from "../../../styles/markdown.module.css";
 import { ThemeContext } from "../../ThemeContext";
 import { toUnicode } from "punycode";
+import config from "../../../config";
 
 export type BlogProps = {
   data: FiletreeNode[];
@@ -68,27 +69,30 @@ export default function index({ data, blogRoot }: BlogProps) {
       if (!has_rm) showFile(cur_file[0].url, cur_file[0].path);
     }
     indexHasDeal = true;
-    // rootStack.push(blogRoot);
     // refresh the page
     setArticle(article);
   };
 
   useEffect(() => {
-    rootStack.push(blogRoot);
     dealIndex(data);
     return () => {
       indexHasDeal = false;
       cur_index = [];
       cur_file = [];
-      rootStack = [];
     };
   }, [indexHasDeal]);
+
+  useEffect(() => {
+    rootStack = [];
+    rootStack.push(blogRoot);
+  }, []);
+
 
   const showFile = (url: string, filename: string) => {
     fetch(url, {
       method: "GET",
       headers: {
-        // Authorization: `Bearer ${config.token}`,
+        Authorization: `Bearer ${config.token}`,
       },
     })
       .then((response) => response.json())
@@ -114,14 +118,12 @@ export default function index({ data, blogRoot }: BlogProps) {
     cur_file = [];
     indexHasDeal = false;
     if (item.path === "..") {
-      console.log(rootStack);
       if (rootStack.length === 1) {
         toast.error("This is the root directory");
         return;
       } else {
-        todo!()
-        const preRoot = rootStack[rootStack.length - 1];
         rootStack.pop();
+        const preRoot = rootStack[rootStack.length - 1];
         if (preRoot === undefined) {
           toast.error("Emmm... Something wrong");
           return;
@@ -129,7 +131,7 @@ export default function index({ data, blogRoot }: BlogProps) {
         fetch(preRoot, {
           method: "GET",
           headers: {
-            // Authorization: `Bearer ${config.token}`,
+            Authorization: `Bearer ${config.token}`,
           },
         })
           .then((response) => response.json())
@@ -142,7 +144,7 @@ export default function index({ data, blogRoot }: BlogProps) {
       fetch(item.url, {
         method: "GET",
         headers: {
-          // Authorization: `Bearer ${config.token}`,
+          Authorization: `Bearer ${config.token}`,
         },
       })
         .then((response) => response.json())
