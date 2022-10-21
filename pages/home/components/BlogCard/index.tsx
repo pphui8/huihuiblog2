@@ -19,7 +19,7 @@ export type Res = {
 const index = (props: Props) => {
   const data = props.data;
   const dataurl = Buffer.from(data.name).toString("base64");
-  let delay = props.delay < 4 ? props.delay * 2 : 3;
+  let delay = props.delay < 3 ? props.delay * 2 : 3;
   const { isNight } = useContext(ThemeContext);
   const [inView, setInView] = React.useState(false);
   return (

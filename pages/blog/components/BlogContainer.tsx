@@ -91,9 +91,6 @@ export default function index({ data, blogRoot }: BlogProps) {
   const showFile = (url: string, filename: string) => {
     fetch(url, {
       method: "GET",
-      headers: {
-        Authorization: `Bearer ${config.token}`,
-      },
     })
       .then((response) => response.json())
       .then((article) => {
@@ -130,9 +127,6 @@ export default function index({ data, blogRoot }: BlogProps) {
         }
         fetch(preRoot, {
           method: "GET",
-          headers: {
-            Authorization: `Bearer ${config.token}`,
-          },
         })
           .then((response) => response.json())
           .then((data) => {
@@ -143,9 +137,6 @@ export default function index({ data, blogRoot }: BlogProps) {
     } else {
       fetch(item.url, {
         method: "GET",
-        headers: {
-          Authorization: `Bearer ${config.token}`,
-        },
       })
         .then((response) => response.json())
         .then((data) => {

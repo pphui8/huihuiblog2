@@ -40,7 +40,6 @@ type Res = {
 export const getStaticPaths: GetStaticPaths = async () => {
   const res: Res[] = await fetch(`${config.baseURL}index`)
     .then((res) => res.json())
-
   const paths = res.map((node) => ({
     params: { title: Buffer.from(node.name).toString("base64") },
   }));
@@ -81,7 +80,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
       return await fetch(tmpurl, {
         method: "GET",
         headers: {
-          Authorization: `Bearer ${config.token}`,
+          Authorization: `Bearer ${Buffer.from(
+            config.token,
+            "base64"
+          ).toString("utf-8")}`,
         },
       })
         .then((res) => res.json())
@@ -105,5 +107,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       blogRoot: tmpurl,
       status: res === null ? 500 : 200,
     },
+    revalidate: 12000,
   };
 };

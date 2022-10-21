@@ -47,6 +47,7 @@ export const getStaticProps: GetStaticProps = async () => {
     });
   return {
     props: { data: res },
+    revalidate: 12000,
   };
 };
 
