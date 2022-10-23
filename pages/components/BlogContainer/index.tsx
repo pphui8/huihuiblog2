@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import BlogCard from '../BlogCard';
 import styles from './BlogContainer.module.css'
-import { ThemeContext } from "../../../ThemeContext";
+import { ThemeContext } from "../../ThemeContext";
 
 type Props = {
   data: Res[];

@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import styles from "./BlogCard.module.css";
-import { ThemeContext } from "../../../ThemeContext";
+import { ThemeContext } from "../../ThemeContext";
 import { InView } from "react-intersection-observer";
 
 type Props = {
@@ -53,6 +53,6 @@ const Index = (props: Props) => {
       )}
     </InView>
   );
-}
+};
 
 export default Index

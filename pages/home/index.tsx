@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useRouter } from "next/router";
-import Profile from "./components/Profile";
-import BlogContainer, { Res } from "./components/BlogContainer";
+import Profile from "../components/Profile";
+import BlogContainer, { Res } from "../components/BlogContainer";
 import config from '../../config';
 import { GetStaticProps } from "next";
 
@@ -33,7 +33,7 @@ const Index = (props: Props) => {
       )}
     </>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps = async () => {
   const baseURL = config.baseURL;

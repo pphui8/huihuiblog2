@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import styles from './Profile.module.css'
-import { ThemeContext } from "../../../ThemeContext";
+import { ThemeContext } from "../../ThemeContext";
 
 type Props = {}
 
