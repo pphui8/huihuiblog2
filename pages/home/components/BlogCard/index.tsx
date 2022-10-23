@@ -16,7 +16,7 @@ export type Res = {
   tag: string;
 };
 
-const index = (props: Props) => {
+const Index = (props: Props) => {
   const data = props.data;
   const dataurl = Buffer.from(data.name).toString("base64");
   let delay = props.delay < 3 ? props.delay * 2 : 3;
@@ -55,4 +55,4 @@ const index = (props: Props) => {
   );
 }
 
-export default index
+export default Index

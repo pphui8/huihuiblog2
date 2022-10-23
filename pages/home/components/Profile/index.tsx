@@ -4,13 +4,12 @@ import { ThemeContext } from "../../../ThemeContext";
 
 type Props = {}
 
-const index = (props: Props) => {
+const Index = (props: Props) => {
   const { isNight } = useContext(ThemeContext);
   const sakamoto = {
     normal:
       "https://tvax4.sinaimg.cn/large/006z6YU4ly1h0fl000u43j31e00u8afz.jpg",
-    sleep:
-      "https://tva3.sinaimg.cn/large/006z6YU4ly1h0gh1hv12kj31b80xcdi6.jpg",
+    sleep: "https://tva3.sinaimg.cn/large/006z6YU4ly1h0gh1hv12kj31b80xcdi6.jpg",
   };
   const hakase = {
     normal:
@@ -35,6 +34,6 @@ const index = (props: Props) => {
       <div className={styles.line_r}></div>
     </div>
   );
-}
+};
 
-export default index
+export default Index;

@@ -14,7 +14,7 @@ type Props = {
   data: Res[] | Error;
 };
 
-const index = (props: Props) => {
+const Index = (props: Props) => {
   const { data } = props;
   const router = useRouter();
   useEffect(() => {
@@ -51,4 +51,4 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default index
+export default Index;

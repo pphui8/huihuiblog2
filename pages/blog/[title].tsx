@@ -16,7 +16,7 @@ export type BlogRoot = {
   status: number;
 };
 
-function index({ data, blogRoot, status}: Props) {
+function Index({ data, blogRoot, status }: Props) {
   const router = useRouter();
   const blogData = data as FiletreeNode[];
   useEffect(() => {
@@ -28,7 +28,7 @@ function index({ data, blogRoot, status}: Props) {
   return <BlogContainer data={blogData} blogRoot={blogRoot} />;
 }
 
-export default index
+export default Index;
 
 type Res = {
   descript: string;

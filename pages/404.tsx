@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast';
 import { ThemeContext } from "./ThemeContext";
 
 let isShow = false;
-const index = () => {
+const Index = () => {
 
   useEffect(() => {
     if(isShow) {
@@ -33,4 +33,4 @@ const index = () => {
   );
 }
 
-export default index
+export default Index

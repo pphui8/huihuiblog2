@@ -14,7 +14,7 @@ export type Res = {
   tag: string;
 };
 
-const index = (props: Props) => {
+const Index = (props: Props) => {
   const { isNight } = useContext(ThemeContext);
   const index = props.data.sort((a, b) => b.id - a.id);
 
@@ -41,4 +41,4 @@ const index = (props: Props) => {
   );
 }
 
-export default index
+export default Index

@@ -33,7 +33,7 @@ let cur_file: FiletreeNode[] = [];
 let indexHasDeal = false;
 let rootStack: string[] = [];
 
-export default function index({ data, blogRoot }: BlogProps) {
+export default function Index({ data, blogRoot }: BlogProps) {
   const [article, setArticle] = useState("");
 
   const dealIndex = (data: FiletreeNode[]) => {
@@ -86,7 +86,6 @@ export default function index({ data, blogRoot }: BlogProps) {
     rootStack = [];
     rootStack.push(blogRoot);
   }, []);
-
 
   const showFile = (url: string, filename: string) => {
     fetch(url, {
@@ -143,8 +142,8 @@ export default function index({ data, blogRoot }: BlogProps) {
           dealIndex(data.tree);
         })
         .catch((err) => toast.error(`Request Failed`));
-        rootStack.push(item.url);
-      }
+      rootStack.push(item.url);
+    }
   };
 
   return (
@@ -204,7 +203,7 @@ export default function index({ data, blogRoot }: BlogProps) {
             : myStyles.article + " " + styles.markdown_body
         }
       >
-        <ReactMarkdown children={articleContent} remarkPlugins={[remarkGfm]} />
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>{articleContent}</ReactMarkdown>
       </div>
     );
   }

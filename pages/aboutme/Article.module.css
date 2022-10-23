@@ -30,6 +30,19 @@
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
+
+.aboutMe .container .blogArticle {
+    margin-top: 15px;
+    border: 1px solid #000;
+    border-radius: 25px;
+    padding: 30px;
+    margin-bottom: 105px;
+    min-height: calc(100vh - 280px);
+    animation: blogInAnimation ease-out 2s; 
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
 .aboutMe .container .APILink {
     position: absolute;
     bottom: 40px;

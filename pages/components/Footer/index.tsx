@@ -4,7 +4,7 @@ import { ThemeContext } from "../../ThemeContext";
 
 type Props = {}
 
-export default function index({}: Props) {
+export default function Index({}: Props) {
   const { isNight } = useContext(ThemeContext);
   const ashiato = {
     normal:

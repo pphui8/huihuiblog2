@@ -4,7 +4,7 @@ import styles from "../styles/error.module.css";
 import { ThemeContext } from "./ThemeContext";
 
 let isShow = false;
-const index = () => {
+const Index = () => {
   useEffect(() => {
     if (isShow) {
       toast.error("error Σ(°ロ°)");
@@ -37,4 +37,4 @@ const index = () => {
     </div>
   );
 };
-export default index;
+export default Index;

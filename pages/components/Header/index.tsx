@@ -5,7 +5,7 @@ import { ThemeContext } from "../../ThemeContext";
 
 type Props = {}
 
-export default function index({}: Props) {
+export default function Index({}: Props) {
   const { isNight, toggleTheme } = useContext(ThemeContext);
   const [switchLoc, setSwitchLoc] = React.useState("up");
   const lightSwitch = () => {

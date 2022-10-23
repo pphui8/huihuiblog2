@@ -13,7 +13,8 @@ type Filing = {
   code: number;
 };
 
-const index = (props: Props) => {
+let isShow = false;
+const Index = (props: Props) => {
   const [tagCount, setTagCount] = useState<Filing>({
     test: 0,
     note: 0,
@@ -23,15 +24,17 @@ const index = (props: Props) => {
   const { isNight } = useContext(ThemeContext);
   const baseURL = config.baseURL;
   const getFiling = () => {
+    if(isShow) return;
     fetch(baseURL + `filing`)
       .then((res) => res.json())
       .then((res: Filing) => setTagCount(res))
       .catch((err) => toast.error("request failed"));
+    isShow = true;
   };
 
   useEffect(() => {
     getFiling();
-  }, []);
+  }, [isShow]);
   return (
     <div
       className={isNight ? styles.filingContainerNight : styles.filingContainer}
@@ -46,6 +49,6 @@ const index = (props: Props) => {
       })}
     </div>
   );
-}
+};
 
-export default index
+export default Index;
