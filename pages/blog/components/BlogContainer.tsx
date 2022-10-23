@@ -7,8 +7,6 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import styles from "../../../styles/markdown.module.css";
 import { ThemeContext } from "../../ThemeContext";
-import { toUnicode } from "punycode";
-import config from "../../../config";
 
 export type BlogProps = {
   data: FiletreeNode[];

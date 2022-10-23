@@ -16,7 +16,8 @@ export type Res = {
 
 const Index = (props: Props) => {
   const { isNight } = useContext(ThemeContext);
-  const index = props.data.sort((a, b) => b.id - a.id);
+  let data = props.data === undefined ? [] : props.data;
+  const index = data.sort((a, b) => b.id - a.id);
 
   const tomodati = {
     light:

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/mainPage.module.css'
+import styles from "../styles/mainPage.module.css";
 
 interface Theme {
   isNight: Boolean;
@@ -13,7 +13,7 @@ export const ThemeContext = React.createContext<Theme>({
   toggleTheme: () => {},
 });
 
-export const ThemeContextProvider = ({ children }: any) => {
+function ThemeContextProvider({ children }: any ) {
   const [theme, setTheme] = React.useState(false);
   return (
     <ThemeContext.Provider
@@ -22,7 +22,9 @@ export const ThemeContextProvider = ({ children }: any) => {
         toggleTheme: () => setTheme(!theme),
       }}
     >
-      <div className={theme ? styles.body_night : ''}>{children}</div>
+      <div className={theme ? styles.body_night : ""}>{children}</div>
     </ThemeContext.Provider>
   );
 }
+
+export default ThemeContextProvider;

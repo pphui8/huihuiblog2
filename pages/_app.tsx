@@ -4,7 +4,7 @@ import Footer from './components/Footer'
 import type { AppProps } from 'next/app'
 import { Toaster } from 'react-hot-toast';
 import React from 'react';
-import { ThemeContextProvider } from './ThemeContext';
+import ThemeContextProvider from './ThemeContext';
 
 
 function MyApp({ Component, pageProps }: AppProps) {

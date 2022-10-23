@@ -37,7 +37,6 @@
     border-radius: 25px;
     padding: 30px;
     margin-bottom: 105px;
-    min-height: calc(100vh - 280px);
     animation: blogInAnimation ease-out 2s; 
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
