@@ -17,7 +17,7 @@ export type Res = {
 };
 
 const Index = (props: Props) => {
-  const data = props.data.name === undefined ? { descript: "", id: 0, name: "", tag: "" } : props.data;
+  const data = props.data === undefined ? { descript: "", id: 0, name: "", tag: "" } : props.data;
   const dataurl = Buffer.from(data.name).toString("base64");
   let delay = props.delay < 3 ? props.delay * 2 : 3;
   const { isNight } = useContext(ThemeContext);
