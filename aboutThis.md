@@ -1,5 +1,5 @@
-## about this site
-the 2.0 version of huihuiblog
+## about this blog
+[2.0 version of huihuiblog](https://github.com/pphui8/huihuiblog2)
 
 
 #### techs used:
