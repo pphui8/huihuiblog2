@@ -3,11 +3,11 @@
 
 
 #### techs used:
-- [rust](https://www.rust-lang.org/)
-- [rocket](https://rocket.rs/)
-- [nextjs](https://nextjs.org/)
-- [typescript](https://www.typescriptlang.org/)
-- [restful api](https://restfulapi.net/)
-- [github api](https://developer.github.com/v3/)
-- [markdown](https://www.markdownguide.org/)
+- [Rust](https://www.rust-lang.org/)
+- [Rocket](https://rocket.rs/)
+- [Nextjs](https://nextjs.org/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Restful API](https://restfulapi.net/)
+- [Github API](https://developer.github.com/v3/)
+- [Markdown](https://www.markdownguide.org/)
 - [ssg](https://en.wikipedia.org/wiki/Static_site_generator)
