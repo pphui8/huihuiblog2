@@ -1,0 +1,199 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[5].use[3]!./app/home/Profile.module.css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+.Profile_head__yxEfH {
+    position: relative;
+    width: 100%;
+    height: 180px;
+}
+@keyframes Profile_fadeInAnimation__rKaeb { 
+    0% { 
+        opacity: 0; 
+    } 
+    100% { 
+        opacity: 1; 
+    } 
+}
+.Profile_head__yxEfH .Profile_profile__NH7Yv {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 1px solid rgb(114, 114, 114);
+    background-image: url("https://q1.qlogo.cn/g?b=qq&nk=1292750686&s=640");
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    animation: Profile_fadeInAnimation__rKaeb ease-out 2s; 
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.Profile_head__yxEfH .Profile_hakase__WFjSY {
+    position: absolute;
+    z-index: -1;
+    left: 10%;
+    bottom: 41px;
+    width: 80px;
+    opacity: 0;
+    animation: Profile_fadeInAnimation__rKaeb ease-out 2s; 
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+}
+.Profile_head__yxEfH .Profile_sakamoto__04yRg {
+    position: absolute;
+    z-index: -1;
+    width: 150px;
+    right: 10%;
+    top: 30px;
+    opacity: 0;
+    animation: Profile_fadeInAnimation__rKaeb ease-out 2s; 
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+}
+@keyframes Profile_expandAnimation__Cs8AR {
+    0% { 
+        width: 0;
+        opacity: 0;
+    }
+    30% { 
+        width: 0;
+        opacity: .2;
+    }
+    100% { 
+        width: 50%;
+        opacity: 1;
+    } 
+}
+.Profile_head__yxEfH .Profile_line_l__xRI7V {
+    position: absolute;
+    right: 50%;
+    z-index: -1;
+    top: 139px;
+    height: 1px;
+    background-color: rgb(114, 114, 114);
+    animation: Profile_expandAnimation__Cs8AR ease-out 4s; 
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.Profile_head__yxEfH .Profile_line_r__YNfHL {
+    position: absolute;
+    left: 50%;
+    z-index: -1;
+    top: 139px;
+    height: 1px;
+    background-color: rgb(114, 114, 114);
+    animation: Profile_expandAnimation__Cs8AR ease 4s; 
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.Profile_profile_night__H2Rsn {
+    position: relative;
+    width: 100%;
+    height: 180px;
+}
+@keyframes Profile_fadeInAnimation__rKaeb { 
+    0% { 
+        opacity: 0; 
+    } 
+    100% { 
+        opacity: 1; 
+    } 
+}
+.Profile_profile_night__H2Rsn .Profile_profile__NH7Yv {
+    display: inline-block;
+    z-index: 2;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    background-image: url("https://q1.qlogo.cn/g?b=qq&nk=1292750686&s=640");
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    animation: Profile_fadeInAnimation__rKaeb ease-out 2s; 
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.Profile_profile_night__H2Rsn .Profile_hakase__WFjSY {
+    position: absolute;
+    z-index: 1;
+    left: 10%;
+    bottom: 41px;
+    width: 80px;
+    opacity: 0;
+    animation: Profile_fadeInAnimation__rKaeb ease-out 2s; 
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+}
+.Profile_profile_night__H2Rsn .Profile_sakamoto__04yRg {
+    position: absolute;
+    z-index: 1;
+    width: 140px;
+    right: 12%;
+    top: 30px;
+    opacity: 0;
+    animation: Profile_fadeInAnimation__rKaeb ease-out 2s; 
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+}
+@keyframes Profile_expandAnimation__Cs8AR {
+    0% { 
+        width: 0;
+        opacity: 0;
+    }
+    30% { 
+        width: 0;
+        opacity: .2;
+    }
+    100% { 
+        width: 50%;
+        opacity: 1;
+    } 
+}
+.Profile_profile_night__H2Rsn .Profile_line_l__xRI7V {
+    position: absolute;
+    z-index: 1;
+    right: 50%;
+    top: 139px;
+    height: 1px;
+    background-color: rgb(214, 214, 214);
+    animation: Profile_expandAnimation__Cs8AR ease-out 4s; 
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.Profile_profile_night__H2Rsn .Profile_line_r__YNfHL {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 139px;
+    height: 1px;
+    background-color: rgb(214, 214, 214);
+    animation: Profile_expandAnimation__Cs8AR ease 4s; 
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}

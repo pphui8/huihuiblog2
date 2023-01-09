@@ -1,6 +1,11 @@
 "use client";
 
 import React from "react";
+import "../styles/globals.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import { Toaster } from "react-hot-toast";
+import ThemeContextProvider from "./ThemeContext";
 
 export default function RootLayout({
   children,
@@ -18,7 +23,14 @@ export default function RootLayout({
         <meta name="description" content="pphui8的blog" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body>{children}</body>
+      <body>
+        <ThemeContextProvider>
+          <Toaster />
+          <Header />
+          {children}
+          <Footer />
+        </ThemeContextProvider>
+      </body>
     </html>
   );
 }

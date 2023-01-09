@@ -1,0 +1,32 @@
+@keyframes fadeInAnimation { 
+    0% { 
+        opacity: 0; 
+    } 
+    100% { 
+        opacity: 1; 
+    } 
+}
+.blogs {
+    position: relative;
+    min-height: calc(100vh - 310px);
+    height: auto;
+}
+
+.blogs .container {
+    position: relative;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.blogs .tomodati {
+    position: absolute;
+    bottom: 10%;
+    left: -41px;
+    width: 90px;
+    z-index: -1;
+    opacity: 0;
+    animation: fadeInAnimation ease-out 2s; 
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+}
