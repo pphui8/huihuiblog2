@@ -8,7 +8,7 @@ export default function Page({}: Props) {
   return (
     <>
       <Profile />
-      {/* <BlogContainer /> */}
+      <BlogContainer />
     </>
   )
 }

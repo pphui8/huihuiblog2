@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import BlogCard from "./BlogCard";
 import styles from "./BlogContainer.module.css";
+import config from "../../../config";
 import { ThemeContext } from "../../ThemeContext";
 
-type Props = { };
+type Props = {};
 
 export type Res = {
   descript: string;
@@ -14,18 +15,31 @@ export type Res = {
   tag: string;
 };
 
-const getBlogList
+async function getData() {
+  const res = await fetch(config.baseURL + "index");
 
-const Index = (props: Props) => {
+  // Recommendation: handle errors
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
+export default function Page() {
   const { isNight } = useContext(ThemeContext);
-  let data = props.data === undefined ? [] : props.data;
-  const index = data.sort((a, b) => b.id - a.id);
+  const [index, setIndex] = React.useState<Res[]>([]);
+  useEffect(() => {
+    getData()
+      .then((res) => res.sort((a: any, b: any) => b.id - a.id))
+      .then((res) => setIndex(res))
+      .then((res) => console.log(res));
+  }, []);
 
   const tomodati = {
-    light:
-      "https://tvax4.sinaimg.cn/large/006z6YU4ly1h0lz7hc81hj30dw0u075l.jpg",
-    night:
-      "https://tvax3.sinaimg.cn/large/006z6YU4ly1h0lz7mre07j30dw0u0t9y.jpg",
+    light: "https://i.postimg.cc/qRnsB4dx/home-sanningumi.jpg",
+    night: "https://i.postimg.cc/mhxM0nn6/home-sanningumi-night.jpg",
   };
 
   return (
@@ -42,6 +56,4 @@ const Index = (props: Props) => {
       />
     </div>
   );
-};
-
-export default Index;
+}
