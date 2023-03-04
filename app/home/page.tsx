@@ -1,6 +1,6 @@
 import React from 'react'
 import Profile from './Profile'
-import BlogContainer from './(BlogContainer)/BlogContainer'
+import BlogContainer from './BlogContainer/BlogContainer'
 
 type Props = {}
 

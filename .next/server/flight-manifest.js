@@ -1,8 +1,8 @@
 self.__RSC_MANIFEST={
   "__ssr_module_mapping__": {
-    "(app-client)/./app/home/(BlogContainer)/BlogContainer.tsx": {
+    "(app-client)/./app/home/BlogContainer/BlogContainer.tsx": {
       "": {
-        "id": "(sc_client)/./app/home/(BlogContainer)/BlogContainer.tsx",
+        "id": "(sc_client)/./app/home/BlogContainer/BlogContainer.tsx",
         "name": "",
         "chunks": [
           "app/home/page:app/home/page"
@@ -10,7 +10,7 @@ self.__RSC_MANIFEST={
         "async": false
       },
       "*": {
-        "id": "(sc_client)/./app/home/(BlogContainer)/BlogContainer.tsx",
+        "id": "(sc_client)/./app/home/BlogContainer/BlogContainer.tsx",
         "name": "*",
         "chunks": [
           "app/home/page:app/home/page"
@@ -18,7 +18,7 @@ self.__RSC_MANIFEST={
         "async": false
       },
       "default": {
-        "id": "(sc_client)/./app/home/(BlogContainer)/BlogContainer.tsx",
+        "id": "(sc_client)/./app/home/BlogContainer/BlogContainer.tsx",
         "name": "default",
         "chunks": [
           "app/home/page:app/home/page"
@@ -250,7 +250,7 @@ self.__RSC_MANIFEST={
       "static/css/app/aboutme/page.css"
     ]
   },
-  "D:\\code\\huihuiblog2\\app\\home\\(BlogContainer)\\BlogCard.module.css": {
+  "D:\\code\\huihuiblog2\\app\\home\\BlogContainer\\BlogCard.module.css": {
     "default": {
       "id": "null",
       "name": "default",
@@ -260,7 +260,17 @@ self.__RSC_MANIFEST={
       ]
     }
   },
-  "D:\\code\\huihuiblog2\\app\\home\\(BlogContainer)\\BlogContainer.module.css": {
+  "D:\\code\\huihuiblog2\\app\\home\\BlogContainer\\BlogContainer.module.css": {
+    "default": {
+      "id": "null",
+      "name": "default",
+      "chunks": [
+        "static/css/app/page.css",
+        "static/css/app/home/page.css"
+      ]
+    }
+  },
+  "D:\\code\\huihuiblog2\\app\\home\\BlogContainer\\load.module.css": {
     "default": {
       "id": "null",
       "name": "default",
@@ -292,9 +302,9 @@ self.__RSC_MANIFEST={
       ]
     }
   },
-  "D:\\code\\huihuiblog2\\app\\home\\(BlogContainer)\\BlogContainer.tsx": {
+  "D:\\code\\huihuiblog2\\app\\home\\BlogContainer\\BlogContainer.tsx": {
     "": {
-      "id": "(app-client)/./app/home/(BlogContainer)/BlogContainer.tsx",
+      "id": "(app-client)/./app/home/BlogContainer/BlogContainer.tsx",
       "name": "",
       "chunks": [
         "app/home/page:app/home/page"
@@ -302,7 +312,7 @@ self.__RSC_MANIFEST={
       "async": false
     },
     "*": {
-      "id": "(app-client)/./app/home/(BlogContainer)/BlogContainer.tsx",
+      "id": "(app-client)/./app/home/BlogContainer/BlogContainer.tsx",
       "name": "*",
       "chunks": [
         "app/home/page:app/home/page"
@@ -310,7 +320,7 @@ self.__RSC_MANIFEST={
       "async": false
     },
     "default": {
-      "id": "(app-client)/./app/home/(BlogContainer)/BlogContainer.tsx",
+      "id": "(app-client)/./app/home/BlogContainer/BlogContainer.tsx",
       "name": "default",
       "chunks": [
         "app/home/page:app/home/page"

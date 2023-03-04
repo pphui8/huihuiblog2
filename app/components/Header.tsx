@@ -36,22 +36,22 @@ export default function Index({}: Props) {
       <nav>
         <ul>
           <li>
-            <Link href="/home">
+            <Link href="/home" style={{ textDecoration: "none" }}>
               <h1>huihuiblog</h1>
             </Link>
           </li>
           <li>
-            <Link href="/home">
+            <Link href="/home" style={{ textDecoration: "none" }}>
               <p>home</p>
             </Link>
           </li>
           <li>
-            <Link href="/aboutme">
+            <Link href="/aboutme" style={{ textDecoration: "none" }}>
               <p>about</p>
             </Link>
           </li>
           <li>
-            <Link href="https://pphui8.com">
+            <Link href="https://pphui8.com" style={{ textDecoration: "none" }}>
               <p>pphui8</p>
             </Link>
           </li>
