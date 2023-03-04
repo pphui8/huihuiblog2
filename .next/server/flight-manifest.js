@@ -207,6 +207,32 @@ self.__RSC_MANIFEST={
         ],
         "async": false
       }
+    },
+    "(app-client)/./app/aboutme/page.tsx": {
+      "": {
+        "id": "(sc_client)/./app/aboutme/page.tsx",
+        "name": "",
+        "chunks": [
+          "app/aboutme/page:app/aboutme/page"
+        ],
+        "async": false
+      },
+      "*": {
+        "id": "(sc_client)/./app/aboutme/page.tsx",
+        "name": "*",
+        "chunks": [
+          "app/aboutme/page:app/aboutme/page"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./app/aboutme/page.tsx",
+        "name": "default",
+        "chunks": [
+          "app/aboutme/page:app/aboutme/page"
+        ],
+        "async": false
+      }
     }
   },
   "__edge_ssr_module_mapping__": {},
@@ -219,6 +245,9 @@ self.__RSC_MANIFEST={
     ],
     "D:\\code\\huihuiblog2\\app\\home\\page": [
       "static/css/app/home/page.css"
+    ],
+    "D:\\code\\huihuiblog2\\app\\aboutme\\page": [
+      "static/css/app/aboutme/page.css"
     ]
   },
   "D:\\code\\huihuiblog2\\app\\home\\(BlogContainer)\\BlogCard.module.css": {
@@ -258,7 +287,8 @@ self.__RSC_MANIFEST={
       "chunks": [
         "static/css/app/page.css",
         "static/css/app/layout.css",
-        "static/css/app/home/page.css"
+        "static/css/app/home/page.css",
+        "static/css/app/aboutme/page.css"
       ]
     }
   },
@@ -493,6 +523,59 @@ self.__RSC_MANIFEST={
       "name": "default",
       "chunks": [
         "app-client-internals:app-client-internals"
+      ],
+      "async": false
+    }
+  },
+  "D:\\code\\huihuiblog2\\app\\aboutme\\Article.module.css": {
+    "default": {
+      "id": "null",
+      "name": "default",
+      "chunks": [
+        "static/css/app/aboutme/page.css"
+      ]
+    }
+  },
+  "D:\\code\\huihuiblog2\\app\\aboutme\\components\\Filing\\Filing.module.css": {
+    "default": {
+      "id": "null",
+      "name": "default",
+      "chunks": [
+        "static/css/app/aboutme/page.css"
+      ]
+    }
+  },
+  "D:\\code\\huihuiblog2\\styles\\markdown.module.css": {
+    "default": {
+      "id": "null",
+      "name": "default",
+      "chunks": [
+        "static/css/app/aboutme/page.css"
+      ]
+    }
+  },
+  "D:\\code\\huihuiblog2\\app\\aboutme\\page.tsx": {
+    "": {
+      "id": "(app-client)/./app/aboutme/page.tsx",
+      "name": "",
+      "chunks": [
+        "app/aboutme/page:app/aboutme/page"
+      ],
+      "async": false
+    },
+    "*": {
+      "id": "(app-client)/./app/aboutme/page.tsx",
+      "name": "*",
+      "chunks": [
+        "app/aboutme/page:app/aboutme/page"
+      ],
+      "async": false
+    },
+    "default": {
+      "id": "(app-client)/./app/aboutme/page.tsx",
+      "name": "default",
+      "chunks": [
+        "app/aboutme/page:app/aboutme/page"
       ],
       "async": false
     }
