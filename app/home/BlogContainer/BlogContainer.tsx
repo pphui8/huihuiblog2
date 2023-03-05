@@ -17,12 +17,11 @@ export type Res = {
   tag: string;
 };
 
+let is_show_error = false;
 async function getData() {
   const res = await fetch(config.baseURL + "index");
 
-  // Recommendation: handle errors
   if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
   }
 
@@ -36,7 +35,12 @@ export default function Page() {
     getData()
       .then((res) => res.sort((a: any, b: any) => b.id - a.id))
       .then((res) => setIndex(res))
-      .catch((err) => toast.error(err.message));
+      .catch(() => {
+        if (!is_show_error) {
+          toast.error("Failed to fetch data");
+          is_show_error = true;
+        }
+      });
   }, []);
 
   const tomodati = {

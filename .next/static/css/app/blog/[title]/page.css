@@ -130,6 +130,34 @@
 .article_article__xmiJH .article_container__4ev7l .article_index_night__P6k8l > li:active {
     background-color: rgba(148, 148, 148, 0.459);
 }
+.article_article__xmiJH .article_container__4ev7l .article_loadingContainer__37P5N {
+    min-height: calc(100vh - 138px);
+}
+@keyframes article_LoadfadeInAnimation__uSfpm { 
+    0% { 
+        opacity: 0; 
+    } 
+    50% { 
+        opacity: 1; 
+    }
+    100% { 
+        opacity: 0; 
+    }
+}
+.article_loadingText__gCKjY {
+    opacity: 1;
+    position: absolute;
+    top: 80%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    font-family: '方正舒体';
+    font-size: 20px;
+    /* animation loop */
+    animation: article_LoadfadeInAnimation__uSfpm 1s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-delay: 3s;
+}
 /*!********************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[5].use[3]!./styles/markdown.module.css ***!
   \********************************************************************************************************************************************************************************************************************************************************************/

@@ -117,3 +117,31 @@
 .article .container .index_night > li:active {
     background-color: rgba(148, 148, 148, 0.459);
 }
+.article .container .loadingContainer {
+    min-height: calc(100vh - 138px);
+}
+@keyframes LoadfadeInAnimation { 
+    0% { 
+        opacity: 0; 
+    } 
+    50% { 
+        opacity: 1; 
+    }
+    100% { 
+        opacity: 0; 
+    }
+}
+.loadingText {
+    opacity: 1;
+    position: absolute;
+    top: 80%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    font-family: '方正舒体';
+    font-size: 20px;
+    /* animation loop */
+    animation: LoadfadeInAnimation 1s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-delay: 3s;
+}

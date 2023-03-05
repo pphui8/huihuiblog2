@@ -23,7 +23,8 @@ const Index = (props: Props) => {
     props.data === undefined
       ? { descript: "", id: 0, name: "", tag: "" }
       : props.data;
-  const dataurl = Buffer.from(data.name).toString("base64");
+  const dataurl_base64 = Buffer.from(data.name).toString("base64");
+  const dataurl = encodeURIComponent(dataurl_base64)
   let delay = props.delay < 3 ? props.delay * 2 : 3;
   const { isNight } = useContext(ThemeContext);
   const [inView, setInView] = React.useState(false);
