@@ -1,83 +1,5 @@
 self.__RSC_MANIFEST={
   "__ssr_module_mapping__": {
-    "(app-client)/./app/home/BlogContainer/BlogContainer.tsx": {
-      "": {
-        "id": "(sc_client)/./app/home/BlogContainer/BlogContainer.tsx",
-        "name": "",
-        "chunks": [
-          "app/home/page:app/home/page"
-        ],
-        "async": false
-      },
-      "*": {
-        "id": "(sc_client)/./app/home/BlogContainer/BlogContainer.tsx",
-        "name": "*",
-        "chunks": [
-          "app/home/page:app/home/page"
-        ],
-        "async": false
-      },
-      "default": {
-        "id": "(sc_client)/./app/home/BlogContainer/BlogContainer.tsx",
-        "name": "default",
-        "chunks": [
-          "app/home/page:app/home/page"
-        ],
-        "async": false
-      }
-    },
-    "(app-client)/./app/home/Profile.tsx": {
-      "": {
-        "id": "(sc_client)/./app/home/Profile.tsx",
-        "name": "",
-        "chunks": [
-          "app/home/page:app/home/page"
-        ],
-        "async": false
-      },
-      "*": {
-        "id": "(sc_client)/./app/home/Profile.tsx",
-        "name": "*",
-        "chunks": [
-          "app/home/page:app/home/page"
-        ],
-        "async": false
-      },
-      "default": {
-        "id": "(sc_client)/./app/home/Profile.tsx",
-        "name": "default",
-        "chunks": [
-          "app/home/page:app/home/page"
-        ],
-        "async": false
-      }
-    },
-    "(app-client)/./app/page.tsx": {
-      "": {
-        "id": "(sc_client)/./app/page.tsx",
-        "name": "",
-        "chunks": [
-          "app/page:app/page"
-        ],
-        "async": false
-      },
-      "*": {
-        "id": "(sc_client)/./app/page.tsx",
-        "name": "*",
-        "chunks": [
-          "app/page:app/page"
-        ],
-        "async": false
-      },
-      "default": {
-        "id": "(sc_client)/./app/page.tsx",
-        "name": "default",
-        "chunks": [
-          "app/page:app/page"
-        ],
-        "async": false
-      }
-    },
     "(app-client)/./app/layout.tsx": {
       "": {
         "id": "(sc_client)/./app/layout.tsx",
@@ -100,6 +22,32 @@ self.__RSC_MANIFEST={
         "name": "default",
         "chunks": [
           "app/layout:app/layout"
+        ],
+        "async": false
+      }
+    },
+    "(app-client)/./app/blog/[title]/page.tsx": {
+      "": {
+        "id": "(sc_client)/./app/blog/[title]/page.tsx",
+        "name": "",
+        "chunks": [
+          "app/blog/[title]/page:app/blog/[title]/page"
+        ],
+        "async": false
+      },
+      "*": {
+        "id": "(sc_client)/./app/blog/[title]/page.tsx",
+        "name": "*",
+        "chunks": [
+          "app/blog/[title]/page:app/blog/[title]/page"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./app/blog/[title]/page.tsx",
+        "name": "default",
+        "chunks": [
+          "app/blog/[title]/page:app/blog/[title]/page"
         ],
         "async": false
       }
@@ -233,152 +181,103 @@ self.__RSC_MANIFEST={
         ],
         "async": false
       }
+    },
+    "(app-client)/./app/home/BlogContainer/BlogContainer.tsx": {
+      "": {
+        "id": "(sc_client)/./app/home/BlogContainer/BlogContainer.tsx",
+        "name": "",
+        "chunks": [
+          "app/page:app/page"
+        ],
+        "async": false
+      },
+      "*": {
+        "id": "(sc_client)/./app/home/BlogContainer/BlogContainer.tsx",
+        "name": "*",
+        "chunks": [
+          "app/page:app/page"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./app/home/BlogContainer/BlogContainer.tsx",
+        "name": "default",
+        "chunks": [
+          "app/page:app/page"
+        ],
+        "async": false
+      }
+    },
+    "(app-client)/./app/home/Profile.tsx": {
+      "": {
+        "id": "(sc_client)/./app/home/Profile.tsx",
+        "name": "",
+        "chunks": [
+          "app/page:app/page"
+        ],
+        "async": false
+      },
+      "*": {
+        "id": "(sc_client)/./app/home/Profile.tsx",
+        "name": "*",
+        "chunks": [
+          "app/page:app/page"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./app/home/Profile.tsx",
+        "name": "default",
+        "chunks": [
+          "app/page:app/page"
+        ],
+        "async": false
+      }
+    },
+    "(app-client)/./app/page.tsx": {
+      "": {
+        "id": "(sc_client)/./app/page.tsx",
+        "name": "",
+        "chunks": [
+          "app/page:app/page"
+        ],
+        "async": false
+      },
+      "*": {
+        "id": "(sc_client)/./app/page.tsx",
+        "name": "*",
+        "chunks": [
+          "app/page:app/page"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./app/page.tsx",
+        "name": "default",
+        "chunks": [
+          "app/page:app/page"
+        ],
+        "async": false
+      }
     }
   },
   "__edge_ssr_module_mapping__": {},
   "__entry_css_files__": {
-    "D:\\code\\huihuiblog2\\app\\page": [
-      "static/css/app/page.css"
-    ],
     "D:\\code\\huihuiblog2\\app\\layout": [
       "static/css/app/layout.css"
+    ],
+    "D:\\code\\huihuiblog2\\app\\blog\\[title]\\page": [
+      "static/css/app/blog/[title]/page.css"
+    ],
+    "D:\\code\\huihuiblog2\\app\\aboutme\\page": [
+      "static/css/app/aboutme/page.css"
     ],
     "D:\\code\\huihuiblog2\\app\\home\\page": [
       "static/css/app/home/page.css"
     ],
-    "D:\\code\\huihuiblog2\\app\\aboutme\\page": [
-      "static/css/app/aboutme/page.css"
+    "D:\\code\\huihuiblog2\\app\\page": [
+      "static/css/app/page.css"
     ]
-  },
-  "D:\\code\\huihuiblog2\\app\\home\\BlogContainer\\BlogCard.module.css": {
-    "default": {
-      "id": "null",
-      "name": "default",
-      "chunks": [
-        "static/css/app/page.css",
-        "static/css/app/home/page.css"
-      ]
-    }
-  },
-  "D:\\code\\huihuiblog2\\app\\home\\BlogContainer\\BlogContainer.module.css": {
-    "default": {
-      "id": "null",
-      "name": "default",
-      "chunks": [
-        "static/css/app/page.css",
-        "static/css/app/home/page.css"
-      ]
-    }
-  },
-  "D:\\code\\huihuiblog2\\app\\home\\BlogContainer\\load.module.css": {
-    "default": {
-      "id": "null",
-      "name": "default",
-      "chunks": [
-        "static/css/app/page.css",
-        "static/css/app/home/page.css"
-      ]
-    }
-  },
-  "D:\\code\\huihuiblog2\\app\\home\\Profile.module.css": {
-    "default": {
-      "id": "null",
-      "name": "default",
-      "chunks": [
-        "static/css/app/page.css",
-        "static/css/app/home/page.css"
-      ]
-    }
-  },
-  "D:\\code\\huihuiblog2\\styles\\mainPage.module.css": {
-    "default": {
-      "id": "null",
-      "name": "default",
-      "chunks": [
-        "static/css/app/page.css",
-        "static/css/app/layout.css",
-        "static/css/app/home/page.css",
-        "static/css/app/aboutme/page.css"
-      ]
-    }
-  },
-  "D:\\code\\huihuiblog2\\app\\home\\BlogContainer\\BlogContainer.tsx": {
-    "": {
-      "id": "(app-client)/./app/home/BlogContainer/BlogContainer.tsx",
-      "name": "",
-      "chunks": [
-        "app/home/page:app/home/page"
-      ],
-      "async": false
-    },
-    "*": {
-      "id": "(app-client)/./app/home/BlogContainer/BlogContainer.tsx",
-      "name": "*",
-      "chunks": [
-        "app/home/page:app/home/page"
-      ],
-      "async": false
-    },
-    "default": {
-      "id": "(app-client)/./app/home/BlogContainer/BlogContainer.tsx",
-      "name": "default",
-      "chunks": [
-        "app/home/page:app/home/page"
-      ],
-      "async": false
-    }
-  },
-  "D:\\code\\huihuiblog2\\app\\home\\Profile.tsx": {
-    "": {
-      "id": "(app-client)/./app/home/Profile.tsx",
-      "name": "",
-      "chunks": [
-        "app/home/page:app/home/page"
-      ],
-      "async": false
-    },
-    "*": {
-      "id": "(app-client)/./app/home/Profile.tsx",
-      "name": "*",
-      "chunks": [
-        "app/home/page:app/home/page"
-      ],
-      "async": false
-    },
-    "default": {
-      "id": "(app-client)/./app/home/Profile.tsx",
-      "name": "default",
-      "chunks": [
-        "app/home/page:app/home/page"
-      ],
-      "async": false
-    }
-  },
-  "D:\\code\\huihuiblog2\\app\\page.tsx": {
-    "": {
-      "id": "(app-client)/./app/page.tsx",
-      "name": "",
-      "chunks": [
-        "app/page:app/page"
-      ],
-      "async": false
-    },
-    "*": {
-      "id": "(app-client)/./app/page.tsx",
-      "name": "*",
-      "chunks": [
-        "app/page:app/page"
-      ],
-      "async": false
-    },
-    "default": {
-      "id": "(app-client)/./app/page.tsx",
-      "name": "default",
-      "chunks": [
-        "app/page:app/page"
-      ],
-      "async": false
-    }
   },
   "D:\\code\\huihuiblog2\\styles\\globals.css": {
     "default": {
@@ -407,6 +306,19 @@ self.__RSC_MANIFEST={
       ]
     }
   },
+  "D:\\code\\huihuiblog2\\styles\\mainPage.module.css": {
+    "default": {
+      "id": "null",
+      "name": "default",
+      "chunks": [
+        "static/css/app/layout.css",
+        "static/css/app/blog/[title]/page.css",
+        "static/css/app/aboutme/page.css",
+        "static/css/app/home/page.css",
+        "static/css/app/page.css"
+      ]
+    }
+  },
   "D:\\code\\huihuiblog2\\app\\layout.tsx": {
     "": {
       "id": "(app-client)/./app/layout.tsx",
@@ -429,6 +341,51 @@ self.__RSC_MANIFEST={
       "name": "default",
       "chunks": [
         "app/layout:app/layout"
+      ],
+      "async": false
+    }
+  },
+  "D:\\code\\huihuiblog2\\app\\blog\\[title]\\article.module.css": {
+    "default": {
+      "id": "null",
+      "name": "default",
+      "chunks": [
+        "static/css/app/blog/[title]/page.css"
+      ]
+    }
+  },
+  "D:\\code\\huihuiblog2\\styles\\markdown.module.css": {
+    "default": {
+      "id": "null",
+      "name": "default",
+      "chunks": [
+        "static/css/app/blog/[title]/page.css",
+        "static/css/app/aboutme/page.css"
+      ]
+    }
+  },
+  "D:\\code\\huihuiblog2\\app\\blog\\[title]\\page.tsx": {
+    "": {
+      "id": "(app-client)/./app/blog/[title]/page.tsx",
+      "name": "",
+      "chunks": [
+        "app/blog/[title]/page:app/blog/[title]/page"
+      ],
+      "async": false
+    },
+    "*": {
+      "id": "(app-client)/./app/blog/[title]/page.tsx",
+      "name": "*",
+      "chunks": [
+        "app/blog/[title]/page:app/blog/[title]/page"
+      ],
+      "async": false
+    },
+    "default": {
+      "id": "(app-client)/./app/blog/[title]/page.tsx",
+      "name": "default",
+      "chunks": [
+        "app/blog/[title]/page:app/blog/[title]/page"
       ],
       "async": false
     }
@@ -555,15 +512,6 @@ self.__RSC_MANIFEST={
       ]
     }
   },
-  "D:\\code\\huihuiblog2\\styles\\markdown.module.css": {
-    "default": {
-      "id": "null",
-      "name": "default",
-      "chunks": [
-        "static/css/app/aboutme/page.css"
-      ]
-    }
-  },
   "D:\\code\\huihuiblog2\\app\\aboutme\\page.tsx": {
     "": {
       "id": "(app-client)/./app/aboutme/page.tsx",
@@ -586,6 +534,124 @@ self.__RSC_MANIFEST={
       "name": "default",
       "chunks": [
         "app/aboutme/page:app/aboutme/page"
+      ],
+      "async": false
+    }
+  },
+  "D:\\code\\huihuiblog2\\app\\home\\BlogContainer\\BlogCard.module.css": {
+    "default": {
+      "id": "null",
+      "name": "default",
+      "chunks": [
+        "static/css/app/home/page.css",
+        "static/css/app/page.css"
+      ]
+    }
+  },
+  "D:\\code\\huihuiblog2\\app\\home\\BlogContainer\\BlogContainer.module.css": {
+    "default": {
+      "id": "null",
+      "name": "default",
+      "chunks": [
+        "static/css/app/home/page.css",
+        "static/css/app/page.css"
+      ]
+    }
+  },
+  "D:\\code\\huihuiblog2\\app\\home\\BlogContainer\\load.module.css": {
+    "default": {
+      "id": "null",
+      "name": "default",
+      "chunks": [
+        "static/css/app/home/page.css",
+        "static/css/app/page.css"
+      ]
+    }
+  },
+  "D:\\code\\huihuiblog2\\app\\home\\Profile.module.css": {
+    "default": {
+      "id": "null",
+      "name": "default",
+      "chunks": [
+        "static/css/app/home/page.css",
+        "static/css/app/page.css"
+      ]
+    }
+  },
+  "D:\\code\\huihuiblog2\\app\\home\\BlogContainer\\BlogContainer.tsx": {
+    "": {
+      "id": "(app-client)/./app/home/BlogContainer/BlogContainer.tsx",
+      "name": "",
+      "chunks": [
+        "app/page:app/page"
+      ],
+      "async": false
+    },
+    "*": {
+      "id": "(app-client)/./app/home/BlogContainer/BlogContainer.tsx",
+      "name": "*",
+      "chunks": [
+        "app/page:app/page"
+      ],
+      "async": false
+    },
+    "default": {
+      "id": "(app-client)/./app/home/BlogContainer/BlogContainer.tsx",
+      "name": "default",
+      "chunks": [
+        "app/page:app/page"
+      ],
+      "async": false
+    }
+  },
+  "D:\\code\\huihuiblog2\\app\\home\\Profile.tsx": {
+    "": {
+      "id": "(app-client)/./app/home/Profile.tsx",
+      "name": "",
+      "chunks": [
+        "app/page:app/page"
+      ],
+      "async": false
+    },
+    "*": {
+      "id": "(app-client)/./app/home/Profile.tsx",
+      "name": "*",
+      "chunks": [
+        "app/page:app/page"
+      ],
+      "async": false
+    },
+    "default": {
+      "id": "(app-client)/./app/home/Profile.tsx",
+      "name": "default",
+      "chunks": [
+        "app/page:app/page"
+      ],
+      "async": false
+    }
+  },
+  "D:\\code\\huihuiblog2\\app\\page.tsx": {
+    "": {
+      "id": "(app-client)/./app/page.tsx",
+      "name": "",
+      "chunks": [
+        "app/page:app/page"
+      ],
+      "async": false
+    },
+    "*": {
+      "id": "(app-client)/./app/page.tsx",
+      "name": "*",
+      "chunks": [
+        "app/page:app/page"
+      ],
+      "async": false
+    },
+    "default": {
+      "id": "(app-client)/./app/page.tsx",
+      "name": "default",
+      "chunks": [
+        "app/page:app/page"
       ],
       "async": false
     }
