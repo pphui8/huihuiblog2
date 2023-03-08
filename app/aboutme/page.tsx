@@ -9,11 +9,6 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import remarkGfm from "remark-gfm";
 import { ThemeContext } from "../ThemeContext";
 
-type Props = {
-  aboutMe: string;
-  aboutBlog: string;
-};
-
 async function getData() {
   const aboutme = await fetch(
     `https://api.github.com/repos/pphui8/pphui8/git/blobs/49c667a9827ac71f588d93f3db5698f60b0d1491`
@@ -35,7 +30,7 @@ async function getData() {
 }
 
 let isShow = false;
-const Index = (props: Props) => {
+const Index = () => {
   const [article, setArticle] = useState("Loading...");
   const [blog, setBlog] = useState("Loading...");
   const { isNight } = useContext(ThemeContext);

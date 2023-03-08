@@ -1,0 +1,6 @@
+{
+  "/blog/[title]/page": "/blog/[title]",
+  "/home/page": "/home",
+  "/page": "/",
+  "/aboutme/page": "/aboutme"
+}
