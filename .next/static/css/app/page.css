@@ -394,6 +394,41 @@
     border-radius: 5px;
     text-align: center;
 }
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[5].use[3]!./app/home/BlogContainer/BlogContainer.module.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************/
+@keyframes BlogContainer_fadeInAnimation__6CBUO { 
+    0% { 
+        opacity: 0; 
+    } 
+    100% { 
+        opacity: 1; 
+    } 
+}
+.BlogContainer_blogs__T2sAN {
+    position: relative;
+    min-height: calc(100vh - 310px);
+    height: auto;
+}
+
+.BlogContainer_blogs__T2sAN .BlogContainer_container__QcOCK {
+    position: relative;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.BlogContainer_blogs__T2sAN .BlogContainer_tomodati__CWmwk {
+    position: absolute;
+    bottom: 10%;
+    left: -41px;
+    width: 90px;
+    z-index: -1;
+    opacity: 0;
+    animation: BlogContainer_fadeInAnimation__6CBUO ease-out 2s; 
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+}
 /*!********************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[5].use[3]!./app/home/BlogContainer/load.module.css ***!
   \********************************************************************************************************************************************************************************************************************************************************************************/
@@ -429,38 +464,19 @@
     animation-iteration-count: infinite;
     animation-delay: 3s;
 }
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[5].use[3]!./app/home/BlogContainer/BlogContainer.module.css ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************/
-@keyframes BlogContainer_fadeInAnimation__6CBUO { 
-    0% { 
-        opacity: 0; 
-    } 
-    100% { 
-        opacity: 1; 
-    } 
-}
-.BlogContainer_blogs__T2sAN {
-    position: relative;
-    min-height: calc(100vh - 310px);
-    height: auto;
-}
 
-.BlogContainer_blogs__T2sAN .BlogContainer_container__QcOCK {
-    position: relative;
-    width: 80%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-.BlogContainer_blogs__T2sAN .BlogContainer_tomodati__CWmwk {
-    position: absolute;
-    bottom: 10%;
-    left: -41px;
-    width: 90px;
-    z-index: -1;
+.load_loadingNight__95JSD {
     opacity: 0;
-    animation: BlogContainer_fadeInAnimation__6CBUO ease-out 2s; 
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-    animation-delay: 2s;
+    position: absolute;
+    top: 80%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    font-family: '方正舒体';
+    font-size: 20px;
+    color: #fff;
+    /* animation loop */
+    animation: load_fadeInAnimation__h4tvz 1s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-delay: 3s;
 }

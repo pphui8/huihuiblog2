@@ -1,8 +1,8 @@
 "use client";
 
-import React, { Suspense, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import BlogCard from "./BlogCard";
-import Load from "./load"
+import logdingStyles from "./load.module.css";
 import styles from "./BlogContainer.module.css";
 import config from "../../../config";
 import { ThemeContext } from "../../ThemeContext";
@@ -54,7 +54,15 @@ export default function Page() {
         {
           // if index is empty, show loading
           index.length === 0 && (
-            <Load />
+            <div className={logdingStyles.container}>
+              <p
+                className={
+                  isNight ? logdingStyles.loadingNight : logdingStyles.loading
+                }
+              >
+                少女祈祷中...
+              </p>
+            </div>
           )
         }
         {index.map((elem, index) => {

@@ -145,3 +145,18 @@
     animation-iteration-count: infinite;
     animation-delay: 3s;
 }
+.loadingTextNight {
+    opacity: 1;
+    position: absolute;
+    top: 80%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    font-family: '方正舒体';
+    font-size: 20px;
+    color: #fff;
+    /* animation loop */
+    animation: LoadfadeInAnimation 1s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-delay: 3s;
+}

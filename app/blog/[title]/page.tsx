@@ -44,6 +44,7 @@ const Page: FC<pageProps> = ({ params }) => {
   const title = Buffer.from(urlParam, "base64").toString("utf-8");
   const [data, setData] = useState<FiletreeList>();
 
+  const { isNight } = useContext(ThemeContext);
   const [article, setArticle] = useState("");
   
   useEffect(() => {
@@ -56,7 +57,7 @@ const Page: FC<pageProps> = ({ params }) => {
             return;
           }
           setData(res);
-          dealIndex(res.tree);
+          dealIndex(res.tree, res.url);
         })
         .catch((err) => {
           if (!err_show_once) {
@@ -73,7 +74,12 @@ const Page: FC<pageProps> = ({ params }) => {
     };
   }, []);
 
-  const dealIndex = (data: FiletreeNode[]) => {
+  const dealIndex = (data: FiletreeNode[], cur_url: string) => {
+    if(cur_index.length !== 0) {
+      return ;
+    } else if(cur_url !== "") {
+      rootStack.push(cur_url);
+    }
     if (cur_index.length === 0) {
       cur_index.push({
         path: "..",
@@ -108,7 +114,7 @@ const Page: FC<pageProps> = ({ params }) => {
   }
 
   const showFile = (url: string, filename: string) => {
-    fetch(url, {
+    let myPromise = fetch(url, {
       method: "GET",
     })
       .then((response) => response.json())
@@ -119,6 +125,11 @@ const Page: FC<pageProps> = ({ params }) => {
         setArticle(tmp);
       })
       .catch((err) => toast.error(`Request Failed`));
+    toast.promise(myPromise, {
+      loading: "Loading...",
+      success: "done!",
+      error: "Error when fetching",
+    });
   };
 
   const toFile = (item: FiletreeNode) => {
@@ -133,6 +144,7 @@ const Page: FC<pageProps> = ({ params }) => {
     cur_index = [];
     cur_file = [];
     get_data_once = false;
+
     if (item.path === "..") {
       if (rootStack.length === 1) {
         toast.error("This is the root directory");
@@ -141,40 +153,54 @@ const Page: FC<pageProps> = ({ params }) => {
         rootStack.pop();
         const preRoot = rootStack[rootStack.length - 1];
         if (preRoot === undefined) {
-          // bug here
           toast.error("Emmm... Something wrong");
           return;
         }
-        fetch(preRoot, {
+        // show toast loading
+        const myPromise = fetch(preRoot, {
           method: "GET",
         })
           .then((response) => response.json())
           .then((data) => {
-            dealIndex(data.tree);
+            dealIndex(data.tree, "");
           })
           .catch((err) => toast.error(`Request Failed`));
+        toast.promise(myPromise, {
+          loading: "Loading...",
+          success: "done!",
+          error: "Error when fetching",
+        });
       }
     } else {
-      fetch(item.url, {
-        method: "GET",
-      })
+      const myPromise = fetch(item.url)
         .then((response) => response.json())
         .then((data) => {
-          dealIndex(data.tree);
+          dealIndex(data.tree, "");
         })
         .catch((err) => toast.error(`Request Failed`));
       rootStack.push(item.url);
+      toast.promise(myPromise, {
+        loading: "Loading...",
+        success: "done!",
+        error: "Error when fetching",
+      });
     }
   };
 
-  console.log(cur_index);
+  // console.log(cur_index);
 
   return (
     <div className={myStyles.article}>
       <div className={myStyles.container}>
         {data === undefined ? (
           <div className={myStyles.loadingContainer}>
-            <p className={myStyles.loadingText}>少女祈祷中...</p>
+            <p
+              className={
+                isNight ? myStyles.loadingTextNight : myStyles.loadingText
+              }
+            >
+              少女祈祷中...
+            </p>
           </div>
         ) : (
           <>
